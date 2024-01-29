@@ -21,6 +21,8 @@ public class WorldGenerator {
 
         worldIntMap = new int[worldMapRows][worldMapColumns];
 
+
+        /*
         Vector2 mapSeed = new Vector2(MathUtils.random(worldIntMap[0].length), MathUtils.random(worldIntMap.length));
         System.out.println(mapSeed.y + " " + mapSeed.x);
 
@@ -29,15 +31,21 @@ public class WorldGenerator {
         for(int r = 0; r < worldIntMap.length; r++) {
             for(int c = 0; c < worldIntMap[r].length; c++){
                 Vector2 tempVector = new Vector2(c, r);
-                if(tempVector.dst(mapSeed) < 10){
+                if(tempVector.dst(mapSeed) < 3){
                     worldIntMap[r][c] = 2;
                 }
             }
         }
 
+         */
+
+
+
 
         //call methods to build 2D array
         //randomize();
+        water();
+
         generateWorld();
         generateWorldTextFile();
 
@@ -64,6 +72,16 @@ public class WorldGenerator {
             }
         }
     }
+
+    public void water() {
+        for(int r = 0; r < worldIntMap.length; r++) {
+            for(int c = 0; c < worldIntMap[r].length; c++) {
+                worldIntMap[r][c] = 19;
+            }
+        }
+    }
+
+
 
     public WorldTile[][] generateWorld() {
         WorldTile[][] worldTileMap = new WorldTile[worldMapRows][worldMapColumns];
