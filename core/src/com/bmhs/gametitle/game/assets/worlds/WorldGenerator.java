@@ -13,7 +13,7 @@ public class WorldGenerator {
 
     private int worldMapRows, worldMapColumns;
 
-    private int seedColor, lightGreen, Green;
+    private int seedColor;
 
     private int[][] worldIntMap;
 
@@ -23,14 +23,15 @@ public class WorldGenerator {
 
         worldIntMap = new int[worldMapRows][worldMapColumns];
         seedColor = 2;
-        lightGreen = 17;
 
-        seedIslands(5);
-        searchAndExpand(10, seedColor, lightGreen, 0.99);
-        searchAndExpand(8, seedColor, 18, 0.85);
-        searchAndExpand(6, seedColor, 19, 0.55);
-        searchAndExpand(5, seedColor, 20, 0.65);
-        searchAndExpand(4, seedColor, 21, 0.25);
+        water();
+        seedIslands(1);
+        searchAndExpand(10, seedColor, 44,0.3);
+        searchAndExpand(10, seedColor, 43, 0.3);
+        searchAndExpand(4, seedColor, 61, 0.8);
+        searchAndExpand(4, seedColor, 67, 0.99);
+        searchAndExpand(4, seedColor, 72, 0.5);
+
 
 
         /*
@@ -55,12 +56,18 @@ public class WorldGenerator {
 
         //call methods to build 2D array
         //randomize();
-        //water();
-
         generateWorld();
         generateWorldTextFile();
 
         Gdx.app.error("WorldGenerator", "WorldGenerator(WorldTile[][][])");
+    }
+
+    public void water() {
+        for(int r = 0; r < worldIntMap.length; r++) {
+            for(int c = 0; c < worldIntMap[r].length; c++) {
+                worldIntMap[r][c] = 19;
+            }
+        }
     }
 
     private void seedIslands(int num) {
@@ -125,17 +132,6 @@ public class WorldGenerator {
             }
         }
     }
-
-    /*
-    public void water() {
-        for(int r = 0; r < worldIntMap.length; r++) {
-            for(int c = 0; c < worldIntMap[r].length; c++) {
-                worldIntMap[r][c] = 19;
-            }
-        }
-    }
-
-     */
 
     public WorldTile[][] generateWorld() {
         WorldTile[][] worldTileMap = new WorldTile[worldMapRows][worldMapColumns];
