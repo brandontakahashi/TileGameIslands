@@ -25,14 +25,27 @@ public class WorldGenerator {
         seedColor = 2;
 
         water();
-        seedIslands(1);
-        searchAndExpand(10, seedColor, 44,0.3);
-        searchAndExpand(10, seedColor, 43, 0.3);
-        searchAndExpand(4, seedColor, 61, 0.8);
-        searchAndExpand(4, seedColor, 67, 0.99);
-        searchAndExpand(4, seedColor, 72, 0.5);
 
+        Vector2 mapSeed = new Vector2(10, 20);
 
+        worldIntMap[(int)mapSeed.y][(int)mapSeed.x] = seedColor;
+
+        for(int r = 0; r < worldIntMap.length; r++) {
+            for(int c = 0; c < worldIntMap[r].length; c++){
+                Vector2 tempVector = new Vector2(c, r);
+                if(tempVector.dst(mapSeed) < 6){
+                    worldIntMap[r][c] = 2;
+                }
+            }
+        }
+
+        //seedIslands(1);
+
+        searchAndExpand(5, seedColor, 44,0.9);
+        searchAndExpand(5, seedColor, 43, 0.99);
+        searchAndExpand(2, seedColor, 61, 0.99);
+        searchAndExpand(2, seedColor, 67, 0.99);
+        searchAndExpand(2, seedColor, 72, 0.99);
 
         /*
         Vector2 mapSeed = new Vector2(MathUtils.random(worldIntMap[0].length), MathUtils.random(worldIntMap.length));
@@ -50,6 +63,8 @@ public class WorldGenerator {
         }
 
          */
+
+
 
 
 
