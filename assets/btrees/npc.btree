@@ -1,0 +1,12 @@
+#
+# Fish tree
+#
+
+# Alias definitions
+import talk:"com.bmhs.gametitle.game.assets.tasks.Talktask"
+
+# Tree definition
+root
+    selector
+        sequence
+            talk

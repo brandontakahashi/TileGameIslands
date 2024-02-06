@@ -168,6 +168,8 @@ public class WorldGenTestScreen implements Screen {
     }
 
     private void setCameraLimits() {
+        camera.position.set(player.getX(), player.getY(), 0);
+
         camera.zoom = MathUtils.clamp(camera.zoom, 0.1f, ((float)world.getWorldMapRows()*(float)Tile.ON_SCREEN_DEFAULT_HEIGHT/(float)Gdx.graphics.getHeight()));
 
         // world.getWorldMapRows()*Tile.ON_SCREEN_DEFAULT_HEIGHT)/Gdx.graphics.getHeight()
