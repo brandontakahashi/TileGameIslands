@@ -1,12 +1,13 @@
 #
-# Fish tree
+# NPC tree
 #
 
 # Alias definitions
-import talk:"com.bmhs.gametitle.game.assets.tasks.Talktask"
+import talk:"com.bmhs.gametitle.game.assets.tasks.TalkTask"
+import walk: "com.bmhs.gametitle.game.assets.tasks.WalkTask"
 
 # Tree definition
 root
-    selector
-        sequence
-            talk
+    sequence
+        talk
+        walk
