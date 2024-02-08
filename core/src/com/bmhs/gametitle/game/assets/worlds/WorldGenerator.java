@@ -41,11 +41,13 @@ public class WorldGenerator {
 
         //seedIslands(1);
 
-        searchAndExpand(5, seedColor, 44,0.9);
-        searchAndExpand(5, seedColor, 43, 0.99);
-        searchAndExpand(2, seedColor, 61, 0.99);
-        searchAndExpand(2, seedColor, 67, 0.99);
-        searchAndExpand(2, seedColor, 72, 0.99);
+        //sand
+        searchAndExpand(5, seedColor, 45, 0.99);
+        searchAndExpand(4, seedColor, 44,0.99);
+        //grass
+        searchAndExpand(2, seedColor, 67, 0.85);
+        searchAndExpand(2, seedColor, 72, 0.3);
+        searchAndExpand(2, seedColor, 61, 0.3);
 
         /*
         Vector2 mapSeed = new Vector2(MathUtils.random(worldIntMap[0].length), MathUtils.random(worldIntMap.length));
